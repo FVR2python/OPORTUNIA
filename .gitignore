@@ -1,0 +1,22 @@
+
+# Credenciales y claves privadas
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Datos privados de n8n
+n8n_data/
+
+# Base de datos y respaldos
+*.sqlite
+*.db
+*.sql
+backups/
+
+# Dependencias y archivos temporales
+node_modules/
+*.log

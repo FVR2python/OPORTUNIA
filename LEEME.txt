@@ -1,0 +1,29 @@
+OPORTUNIA IA — FILTROS DE CATEGORÍAS CORREGIDOS
+================================================
+
+CORRECCIÓN
+- La búsqueda del formulario ahora exige al agente SOLAMENTE las categorías seleccionadas.
+- La interfaz comprueba las categorías al recibir la respuesta y OCULTA las demás.
+- Si se elige solo Becas, no se mostrarán tarjetas etiquetadas como Curso o Voluntariado.
+- Igual para Cursos y Voluntariados, o cualquier combinación de las tres.
+- Los contadores, filtros de la derecha, exportación y paginación de seis usan los resultados admitidos.
+- La interfaz avisa cuando tuvo que ocultar resultados de categorías no solicitadas.
+- Acepta respuestas con encabezados «OPORTUNIDAD 1» y campo «Nombre:».
+
+INSTALAR EN WINDOWS
+1. No cambies el System Message ni los nodos de n8n.
+2. Detén solamente la web anterior con Ctrl+C en el CMD donde ejecutas node server.js.
+3. Descomprime este ZIP en una carpeta NUEVA.
+4. Abre esa carpeta y ejecuta: node server.js
+5. Abre http://localhost:5500 y pulsa Ctrl+F5.
+6. Selecciona SOLAMENTE Becas, busca y comprueba el contador y las tarjetas.
+7. Repite seleccionando SOLAMENTE Cursos, y luego solo Voluntariados.
+
+IMPORTANTE
+- Esta corrección filtra por la categoría informada por el agente. Si Gemini etiqueta
+  erróneamente un curso como «Beca», se necesita una validación adicional de la
+  clasificación y fuente para detectar ese error semántico.
+- Si al seleccionar solo becas Gemini devuelve solo cursos, la interfaz mostrará
+  cero becas, NO transformará esos cursos en becas ficticias.
+- No se modifican los flujos de n8n, la configuración MySQL ni las credenciales.
+- La URL local de n8n en server.js se conserva igual que la versión anterior.

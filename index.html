@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#102c41" />
+<meta name="description" content="OPORTUNIA IA encuentra becas, cursos gratuitos y voluntariados para ti con ayuda de inteligencia artificial." />
+<title>OPORTUNIA IA — Tu próxima oportunidad</title>
+<style>
+  :root{
+    --navy:#102c41;--navy-deep:#0b2336;--teal:#087e77;--mint:#b8efe0;--mint-light:#e9f8f3;
+    --ink:#193149;--slate:#51677b;--muted:#788a98;--line:#dce7ed;--bg:#f4f7f9;--white:#fff;
+    --warn:#986116;--danger:#b24545;--radius:20px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  button,input,select,textarea{font:inherit}
+  button{cursor:pointer}
+  a{color:inherit}
+  button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #56c6ba;outline-offset:3px}
+  .container{width:min(1220px,calc(100% - 48px));margin-inline:auto}
+  .site-head{height:72px;background:#fff;border-bottom:1px solid #e4ebef;position:relative;z-index:2}
+  .head-inner{height:100%;display:flex;justify-content:space-between;align-items:center;gap:18px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy-deep)}
+  .brand-icon{width:43px;height:43px;border-radius:14px;background:#dcf4eb;display:grid;place-items:center;color:#087e77;box-shadow:inset 0 0 0 1px #d3ece5}
+  .brand-name{font-weight:860;letter-spacing:-.5px;font-size:1.27rem;line-height:1.1}
+  .brand-sub{font-size:.67rem;color:#688496;display:block;letter-spacing:.04em;font-weight:600;margin-top:3px}
+  .head-right{display:flex;align-items:center;gap:13px}
+  .head-tag{font-size:.77rem;color:#5a7184}
+  .head-dot{width:8px;height:8px;background:#1da58b;border-radius:50%;display:inline-block;margin-right:6px;box-shadow:0 0 0 4px #e4f6f0}
+  .mini-button{border:1px solid #d9e8eb;background:#fff;border-radius:99px;padding:9px 14px;color:#2c5260;font-size:.81rem;font-weight:720;display:flex;align-items:center;gap:7px;transition:.18s}
+  .mini-button:hover{border-color:#83bcb6;background:#f3fbf8}
+  .hero{background:radial-gradient(ellipse at 78% 5%,#1d5966 0%,transparent 43%),linear-gradient(115deg,#0b283e,#0e4051 72%,#164b55);color:#fff;position:relative;overflow:hidden}
+  .hero:before{content:"";position:absolute;right:-115px;top:-190px;width:490px;height:490px;border:1px solid #ffffff18;border-radius:50%;box-shadow:0 0 0 70px #ffffff07,0 0 0 145px #ffffff06;pointer-events:none}
+  .hero-inner{padding:42px 0 92px;display:flex;align-items:center;justify-content:space-between;gap:38px;position:relative}
+  .eyebrow{display:flex;align-items:center;gap:9px;color:#a9e8d9;text-transform:uppercase;font-size:.73rem;letter-spacing:.135em;font-weight:800;margin-bottom:13px}
+  .hero h1{font-size:clamp(2.1rem,4.6vw,3.46rem);font-weight:850;line-height:1.12;letter-spacing:-1.9px;margin:0 0 14px;max-width:630px}
+  .hero h1 em{font-style:normal;color:#a7f1d9}
+  .hero-desc{color:#d6e6ec;font-size:.98rem;max-width:555px;margin:0}
+  .hero-points{display:flex;gap:14px 21px;flex-wrap:wrap;margin-top:24px;color:#d3ece9;font-weight:620;font-size:.8rem}
+  .hero-points span{display:flex;align-items:center;gap:6px}
+  .hero-points svg{color:#92e5cf}
+  .hero-aside{border:1px solid #ffffff26;background:#ffffff12;backdrop-filter:blur(6px);padding:20px;width:260px;border-radius:21px;flex:none;box-shadow:0 14px 46px #06162620}
+  .hero-aside-top{font-size:.73rem;letter-spacing:.08em;text-transform:uppercase;color:#c0e5e0;font-weight:750;margin-bottom:15px}
+  .hero-aside-row{display:flex;gap:11px;align-items:center;padding:8px 0;font-weight:630;font-size:.85rem}
+  .aside-glyph{width:33px;height:33px;border-radius:10px;background:#ffffff1d;display:grid;place-items:center}
+  .hero-aside small{font-size:.74rem;color:#d0e3e4;margin-top:10px;display:block}
+  .layout{display:grid;grid-template-columns:minmax(315px,386px) minmax(0,1fr);gap:24px;align-items:start;margin-top:-48px;margin-bottom:60px;position:relative;z-index:1}
+  .panel{background:var(--white);border:1px solid #e3ebef;border-radius:var(--radius);box-shadow:0 17px 50px #112c4010}
+  .profile-panel{padding:28px}
+  .panel-kicker{font-size:.69rem;font-weight:850;letter-spacing:.11em;text-transform:uppercase;color:var(--teal);margin-bottom:7px}
+  h2{font-size:1.35rem;letter-spacing:-.65px;color:var(--navy);line-height:1.3;margin:0 0 8px}
+  .panel-desc{font-size:.84rem;color:var(--slate);margin:0 0 24px}
+  .section-label{display:flex;align-items:center;gap:9px;font-size:.77rem;font-weight:800;color:#47677a;letter-spacing:.025em;margin:21px 0 13px}
+  .section-number{width:23px;height:23px;border-radius:7px;background:#e5f4f0;color:#0d746d;display:grid;place-items:center;font-size:.69rem;font-weight:850}
+  .fields-two{display:grid;grid-template-columns:102px minmax(0,1fr);gap:12px}
+  .field{margin-bottom:15px;min-width:0}
+  .field-label{display:block;font-size:.76rem;font-weight:790;color:#314d61;margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;padding:11px 12px;min-height:45px;border:1px solid #d3e1e8;border-radius:11px;outline:none;color:#19354c;background:#fcfefe;font-size:.86rem;transition:border-color .16s,box-shadow .16s}
+  .field textarea{resize:vertical;min-height:72px;max-height:150px}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:#3aa99a;box-shadow:0 0 0 3px #3aa99a19;background:#fff}
+  .field-help{font-size:.69rem;color:#80929f;display:block;margin-top:5px}
+  .topics{display:flex;flex-wrap:wrap;gap:7px;margin:-3px 0 15px}
+  .topic{border:1px solid #dbe8e9;background:#f7fbfa;padding:6px 10px;border-radius:99px;font-size:.72rem;color:#3c6770;font-weight:650;transition:.16s}
+  .topic:hover{background:#dff5ed;border-color:#8bcfc0}
+  .categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .category{cursor:pointer;position:relative}
+  .category input{position:absolute;opacity:0;width:1px;height:1px}
+  .category-visual{min-height:74px;border:1.5px solid #dce6ed;border-radius:13px;display:flex;flex-direction:column;gap:3px;align-items:center;justify-content:center;background:#fcfefe;transition:all .16s;text-align:center;font-size:.73rem;font-weight:740;color:#587084;padding:7px 4px}
+  .category-visual .emoji{font-size:1.22rem;line-height:1.15}
+  .category input:checked+.category-visual{background:#e8f7f1;border-color:#22a28c;color:#09695e;box-shadow:inset 0 0 0 1px #22a28c26}
+  .category input:focus-visible+.category-visual{outline:3px solid #56c6ba;outline-offset:3px}
+  .form-error{display:none;color:#a93a3a;background:#fff1f1;border:1px solid #eed0d0;border-radius:10px;padding:10px 12px;font-size:.79rem;margin-top:13px}
+  .form-error.show{display:block}
+  .primary{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;border:0;background:linear-gradient(105deg,#078477,#086d74);color:white;min-height:49px;border-radius:12px;font-weight:800;font-size:.88rem;box-shadow:0 8px 16px #0b8b7b20;transition:transform .15s,filter .15s;margin-top:20px}
+  .primary:hover{transform:translateY(-1px);filter:brightness(1.04)}
+  .primary:disabled{opacity:.7;cursor:progress;transform:none}
+  .privacy{display:flex;align-items:center;justify-content:center;gap:6px;margin:13px 0 0;color:#758996;font-size:.69rem}
+  .results-panel{padding:27px;min-height:535px}
+  .results-head{display:flex;align-items:start;justify-content:space-between;gap:13px;margin-bottom:18px}
+  .results-title{display:flex;align-items:center;gap:12px}
+  .results-icon{width:42px;height:42px;background:#eaf7f3;border-radius:13px;color:#087a72;display:grid;place-items:center}
+  .results-title h2{margin:0 0 4px}
+  .results-title p{color:var(--muted);font-size:.76rem;margin:0}
+  .state-pill{font-size:.69rem;font-weight:780;padding:8px 11px;border-radius:99px;background:#edf6f4;color:#16756b;white-space:nowrap;display:flex;align-items:center;gap:7px}
+  .state-pill:before{content:"";width:7px;height:7px;background:#38b19c;border-radius:50%}
+  .state-pill.loading{color:#a46b23;background:#fff4e5}.state-pill.loading:before{background:#eda84a}
+  .state-pill.error{color:#a43d42;background:#fbeeee}.state-pill.error:before{background:#d46770}
+  .summary{display:none;background:#f5fbf9;border:1px solid #dbeee8;border-radius:15px;padding:17px 18px;margin-bottom:17px}
+  .summary.visible{display:block}
+  .summary-row{display:flex;align-items:start;justify-content:space-between;gap:10px}
+  .summary-title{font-size:.83rem;font-weight:800;color:#1b4d51;margin-bottom:10px}
+  .summary-tags{display:flex;gap:7px;flex-wrap:wrap}
+  .summary-tag{background:#fff;border:1px solid #d6e9e5;color:#456875;border-radius:99px;font-size:.7rem;padding:6px 9px}
+  .filters{display:none;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px;flex-wrap:wrap}
+  .filters.visible{display:flex}
+  .filter-pills{display:flex;gap:6px;flex-wrap:wrap}
+  .filter-pill{border-radius:99px;border:1px solid #dce7ed;background:#fff;font-size:.73rem;font-weight:700;padding:7px 11px;color:#557082}
+  .filter-pill.active{background:#12364a;color:white;border-color:#12364a}
+  .result-count{color:#728696;font-size:.73rem;font-weight:700}
+  .empty{background:linear-gradient(160deg,#fafdfd,#f5f9fa);min-height:400px;border:1px dashed #ccdce4;border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 25px}
+  .empty-illustration{width:104px;height:104px;border-radius:30px;background:radial-gradient(circle at 75% 20%,#d9f9ee,transparent 48%),#eaf4f3;display:grid;place-items:center;color:#1b8a80;margin-bottom:22px;box-shadow:0 10px 35px #b9dad12c}
+  .empty h3{margin:0 0 8px;color:#213b4e;font-size:1.08rem;letter-spacing:-.35px}
+  .empty p{color:#718698;font-size:.84rem;max-width:320px;margin:0}
+  .loading-view{display:none}
+  .loading-view.visible{display:block}
+  .loading-label{display:flex;align-items:center;gap:10px;color:#486678;font-weight:700;font-size:.82rem;margin-bottom:16px}
+  .loader{width:18px;height:18px;border:2px solid #bbdfd8;border-top-color:#09857b;border-radius:50%;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .skeleton{padding:20px;border:1px solid #e1eaef;border-radius:15px;margin-bottom:12px;animation:pulse 1.4s ease-in-out infinite alternate}
+  @keyframes pulse{from{opacity:.55}to{opacity:1}}
+  .sk{height:12px;border-radius:99px;background:#e6eef2;margin-bottom:13px}.sk.short{width:31%}.sk.med{width:66%}.sk.long{width:90%}.sk:last-child{margin-bottom:0}
+  .result-note{background:#f0f7f9;border:1px solid #dceaf0;border-radius:12px;color:#4b6b7e;padding:12px 15px;font-size:.77rem;margin:0 0 16px}
+  .opportunity{border:1px solid #dbe5eb;border-radius:17px;background:#fff;margin-bottom:15px;overflow:hidden;box-shadow:0 4px 18px #1f415309;transition:border-color .15s,box-shadow .15s}
+  .opportunity:hover{border-color:#bdd9d4;box-shadow:0 9px 26px #1f415315}
+  .op-inner{padding:19px 21px}
+  .card-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
+  .badges{display:flex;flex-wrap:wrap;gap:7px}
+  .badge{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:790;letter-spacing:.02em;border-radius:99px;padding:5px 9px;background:#edf2f7;color:#476477}
+  .badge.beca{background:#eeecfb;color:#6653a8}.badge.curso{background:#e8f3fe;color:#2d6b99}.badge.voluntariado{background:#eaf8ef;color:#257752}.badge.warn{background:#fff4e5;color:#976523}
+  .heart{display:inline-grid;place-items:center;border:1px solid #dce5e8;color:#81929e;background:#fff;width:34px;height:34px;border-radius:11px;flex:none}
+  .heart:hover,.heart.on{color:#c26868;background:#fff0f0;border-color:#f2d1d1}
+  .opportunity h3{font-size:1.12rem;line-height:1.38;color:#132f45;letter-spacing:-.35px;margin:0 0 7px}
+  .organization{display:flex;align-items:center;gap:6px;color:#637b8b;font-size:.78rem;margin:0 0 16px}
+  .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .fact{background:#f7fafb;border:1px solid #edf2f4;padding:10px 12px;border-radius:10px;min-width:0}
+  .fact-key{font-size:.68rem;color:#728796;font-weight:760;letter-spacing:.015em;display:block;margin-bottom:4px}
+  .fact-value{font-size:.79rem;color:#29475c;line-height:1.52;overflow-wrap:anywhere}
+  .fit-note{border-left:3px solid #29b69e;background:#eff9f5;margin:14px 0 0;border-radius:0 9px 9px 0;padding:10px 13px}
+  .fit-note strong{font-size:.73rem;color:#126b65;display:block;margin-bottom:3px}
+  .fit-note p{font-size:.8rem;margin:0;color:#496977}
+  .card-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 21px;border-top:1px solid #ebf0f3;flex-wrap:wrap}
+  .source-info{color:#8b9ba7;font-size:.69rem}
+  .source-link{display:inline-flex;align-items:center;gap:6px;border:1px solid #b7ded5;color:#0a756f;text-decoration:none;border-radius:9px;font-weight:800;font-size:.78rem;padding:8px 12px;background:#f4fbf8}
+  .source-link:hover{background:#e3f5ef}
+  .pagination{display:none;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:8px 0 18px;padding:13px 2px}
+  .pagination.visible{display:flex}
+  .pagination-summary{font-size:.79rem;color:#617b8d}
+  .page-buttons{display:flex;align-items:center;flex-wrap:wrap;gap:6px}
+  .page-button{min-width:35px;height:35px;padding:0 9px;border:1px solid #dce6eb;border-radius:9px;background:white;color:#355265;font-weight:760;font-size:.78rem}
+  .page-button:hover:not(:disabled){background:#eff8f6;border-color:#a7d7cd}
+  .page-button.current{background:#087f77;border-color:#087f77;color:#fff}
+  .page-button:disabled{cursor:not-allowed;opacity:.38}
+  .raw-fallback{padding:18px 19px;background:#f8fafb;border:1px solid #e1e8ed;border-radius:14px;color:#314d5e;font-size:.87rem;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7}
+  .raw-fallback a{color:#087e77;font-weight:700;text-decoration:underline}
+  .errorbox{background:#fff7f5;border:1px solid #f2d6d1;border-radius:15px;padding:24px;color:#914847}
+  .errorbox h3{margin:0 0 7px;font-size:1rem}.errorbox p{font-size:.83rem;margin:0 0 15px;line-height:1.65}
+  .retry{border:1px solid #e5b3a7;background:#fff;color:#8b4945;border-radius:9px;font-size:.79rem;padding:8px 14px;font-weight:780}
+  .disclaimer{padding:15px 1px 0;border-top:1px solid #e6edef;margin-top:15px;color:#8092a0;font-size:.72rem}
+  .site-foot{text-align:center;font-size:.76rem;color:#8394a0;padding:7px 0 32px}
+  .small-icon{width:16px;height:16px;stroke:currentColor;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round;flex:none}
+  @media(max-width:1050px){.hero-aside{display:none}}
+  @media(max-width:850px){.layout{grid-template-columns:1fr;margin-top:-45px}.profile-panel,.results-panel{padding:22px}.hero-inner{padding-bottom:78px}.head-tag{display:none}}
+  @media(max-width:540px){.container{width:min(100% - 28px,1220px)}.site-head{height:63px}.head-inner{gap:8px}.mini-button{white-space:nowrap;padding:8px 10px;font-size:.72rem}.brand-icon{width:36px;height:36px;flex:none}.brand-name{font-size:1.04rem}.brand-sub{font-size:.53rem}.hero-inner{padding:31px 0 75px}.hero h1{font-size:2.1rem;letter-spacing:-1.3px}.hero-desc{font-size:.87rem}.hero-points{font-size:.7rem;gap:10px}.layout{gap:14px}.profile-panel,.results-panel{padding:18px;border-radius:16px}.results-head{align-items:center}.results-icon{display:none}.results-title h2{font-size:1.15rem}.state-pill{font-size:.61rem;padding:6px 8px}.categories{gap:6px}.category-visual{font-size:.69rem}.facts{grid-template-columns:1fr}.op-inner{padding:16px}.card-footer{padding:11px 16px}.empty{min-height:300px}}
+  @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+  /* Mejoras para la presentación parcial: análisis local de resultados */
+  .stats-grid{display:none;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0 0 15px}
+  .stats-grid.visible{display:grid}
+  .stat-card{border:1px solid #e1e9ed;background:#f8fbfc;padding:14px 13px;border-radius:13px;min-width:0}
+  .stat-number{font-size:1.5rem;letter-spacing:-.65px;font-weight:850;line-height:1.08;color:#12374a;display:block}
+  .stat-label{font-size:.69rem;color:#658091;margin-top:5px;display:block;font-weight:720}
+  .stats-caption{display:none;color:#778b98;font-size:.7rem;margin:-8px 0 14px}
+  .stats-caption.visible{display:block}
+  .toolbox{display:none;background:#f8fbfb;border:1px solid #e0eaec;border-radius:15px;padding:16px;margin-bottom:17px}
+  .toolbox.visible{display:block}
+  .toolbox-top{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:12px;margin-bottom:13px}
+  .toolbox-field{min-width:0}
+  .toolbox label{display:block;font-size:.71rem;font-weight:790;color:#426376;margin-bottom:5px}
+  .toolbox input,.toolbox select{height:39px;max-width:100%;width:100%;border-radius:9px;border:1px solid #d1e2e7;padding:8px 10px;background:#fff;color:#24485a;font-size:.79rem}
+  .toolbox input:focus,.toolbox select:focus{border-color:#1caa97;outline:2px solid #50c3aa44;outline-offset:1px}
+  .input-with-icon{position:relative}
+  .input-with-icon .small-icon{position:absolute;top:11px;left:11px;color:#7c95a2}
+  .input-with-icon input{padding-left:34px}
+  .export-button{border:1px solid #a8d8ca;border-radius:9px;height:39px;padding:0 13px;background:#edf8f3;color:#176c65;font-size:.76rem;font-weight:780;white-space:nowrap}
+  .export-button:hover{background:#def4eb}
+  .toolbox-bottom{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;align-items:end;gap:10px}
+  .clear-button{border:1px solid #dce5e8;border-radius:9px;height:39px;padding:0 10px;background:#fff;color:#486779;font-size:.75rem;font-weight:730;white-space:nowrap}
+  .clear-button:hover{background:#eaf2f4}
+  .filter-hint{font-size:.69rem;color:#7a8f9e;margin:11px 0 0}
+  .quick-facts{display:flex;flex-wrap:wrap;gap:9px;margin:0 0 3px;color:#637d8b;font-size:.75rem}
+  .quick-facts span{display:inline-flex;align-items:center;gap:5px;background:#f5f9fa;padding:5px 9px;border-radius:8px}
+  .card-details{border-top:1px solid #ecf1f3;margin-top:14px;padding-top:11px}
+  .card-details>summary{list-style:none;cursor:pointer;color:#097c72;font-size:.77rem;font-weight:810;padding:5px 0;display:flex;align-items:center;justify-content:space-between}
+  .card-details>summary::-webkit-details-marker{display:none}
+  .card-details>summary:after{content:'+';font-size:1.15rem;line-height:1}
+  .card-details[open]>summary:after{content:'−'}
+  .card-details .facts{margin-top:12px}
+  .card-details .fit-note{margin-top:12px}
+  #print-area{display:none}
+  @media(max-width:1100px){.toolbox-bottom{grid-template-columns:repeat(2,minmax(0,1fr))}.clear-button{width:100%}}
+  @media(max-width:540px){.stats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.toolbox-top{grid-template-columns:1fr}.toolbox-bottom{grid-template-columns:1fr 1fr}.export-button{width:100%}.stats-grid.visible{gap:7px}.toolbox{padding:12px}}
+  @media print{
+    @page{size:A4;margin:14mm}
+    body{background:white!important;color:#162d3d!important}
+    body>*:not(#print-area){display:none!important}
+    #print-area{display:block!important;font-family:Arial,Helvetica,sans-serif;font-size:10pt;color:#223548}
+    #print-area h1{font-size:19pt;color:#113b45;margin:0 0 6mm}
+    #print-area h2{font-size:12pt;margin:0 0 2mm}
+    #print-area .print-note{color:#63717d;font-size:9pt;margin-bottom:7mm}
+    #print-area .print-item{border:1px solid #b8c9d0;border-radius:5px;padding:4mm;margin-bottom:4mm;break-inside:avoid;overflow-wrap:anywhere}
+    #print-area p{margin:1.3mm 0;line-height:1.42}
+    #print-area a{color:#116e75}
+  }
+</style>
+</head>
+<body>
+<header class="site-head"><div class="container head-inner">
+  <a href="#inicio" class="brand"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m12 2 2.8 7.2L22 12l-7.2 2.8L12 22l-2.8-7.2L2 12l7.2-2.8L12 2Z"/></svg></span><span><span class="brand-name">OPORTUNIA IA</span><span class="brand-sub">DESCUBRE · APRENDE · CRECE</span></span></a>
+  <div class="head-right"><span class="head-tag"><i class="head-dot"></i>Tu futuro empieza aquí</span><button class="mini-button" type="button" id="fav-toggle" aria-pressed="false"><span aria-hidden="true">♡</span> Mis favoritos <span id="fav-count">0</span></button></div>
+</div></header>
+<section class="hero" id="inicio"><div class="container hero-inner">
+  <div><div class="eyebrow"><svg class="small-icon" viewBox="0 0 24 24"><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8 3 3M19 5l-3 3M8 16l-3 3"/></svg>Tu futuro, más cerca</div><h1>Grandes oportunidades.<br><em>Hechas para ti.</em></h1><p class="hero-desc">Encuentra becas, cursos gratuitos y voluntariados que se ajustan a lo que estudias, te interesa y quieres lograr.</p>
+  <div class="hero-points"><span>✓ Búsqueda inteligente</span><span>✓ Según tu perfil</span><span>✓ Acceso a fuentes originales</span></div></div>
+  <aside class="hero-aside" aria-label="Tipos de oportunidades"><div class="hero-aside-top">Explora nuevas posibilidades</div><div class="hero-aside-row"><span class="aside-glyph">🎓</span>Becas y programas</div><div class="hero-aside-row"><span class="aside-glyph">📖</span>Cursos certificados</div><div class="hero-aside-row"><span class="aside-glyph">🤝</span>Voluntariados</div><small>Selecciona tus preferencias y descubre opciones para ti.</small></aside>
+</div></section>
+<main class="container layout" id="busqueda">
+  <section class="panel profile-panel" aria-labelledby="perfil-title">
+    <div class="panel-kicker">01 / Tu perfil</div><h2 id="perfil-title">Cuéntanos sobre ti</h2><p class="panel-desc">Con unos pocos datos, OPORTUNIA IA puede encontrar opciones más relevantes para ti.</p>
+    <form id="perfil-form" novalidate>
+      <div class="section-label"><span class="section-number">1</span>Información académica</div>
+      <div class="fields-two">
+        <div class="field"><label class="field-label" for="edad">Edad</label><input id="edad" name="edad" type="number" min="12" max="100" value="20" required /></div>
+        <div class="field"><label class="field-label" for="nivel">Nivel de estudios</label><select id="nivel" name="nivel" required><option value="Secundaria">Secundaria</option><option value="Universitario" selected>Universitario</option><option value="Egresado">Egresado</option><option value="Posgrado">Posgrado</option></select></div>
+      </div>
+      <div class="field"><label class="field-label" for="ubicacion">País o región</label><input id="ubicacion" name="ubicacion" autocomplete="country-name" value="Perú" maxlength="100" required /></div>
+      <div class="section-label"><span class="section-number">2</span>Tus preferencias</div>
+      <div class="field"><label class="field-label" for="intereses">¿Qué temas te interesan?</label><textarea id="intereses" name="intereses" maxlength="350" rows="2" placeholder="Ej. Ingeniería ambiental, inteligencia artificial, idiomas…" required>Tecnología, programación e inteligencia artificial</textarea><span class="field-help">Puedes escribir varias áreas de interés.</span></div>
+      <div class="topics" aria-label="Sugerencias de interés"><button type="button" class="topic" data-topic="Inteligencia artificial">+ Inteligencia artificial</button><button type="button" class="topic" data-topic="Programación">+ Programación</button><button type="button" class="topic" data-topic="Medio ambiente">+ Medio ambiente</button><button type="button" class="topic" data-topic="Idiomas">+ Idiomas</button></div>
+      <div class="field"><label class="field-label" for="modalidad">Modalidad preferida</label><select id="modalidad" name="modalidad"><option value="Cualquiera">Sin preferencia</option><option value="Virtual">Virtual</option><option value="Presencial">Presencial</option><option value="Mixta">Mixta / híbrida</option></select></div>
+      <div class="section-label"><span class="section-number">3</span>¿Qué quieres encontrar?</div>
+      <div class="categories" role="group" aria-label="Tipos de oportunidades">
+        <label class="category"><input type="checkbox" name="categorias" value="Beca" checked /><span class="category-visual"><span class="emoji">🎓</span>Becas</span></label>
+        <label class="category"><input type="checkbox" name="categorias" value="Curso" checked /><span class="category-visual"><span class="emoji">📘</span>Cursos</span></label>
+        <label class="category"><input type="checkbox" name="categorias" value="Voluntariado" checked /><span class="category-visual"><span class="emoji">🤝</span>Voluntariados</span></label>
+      </div>
+      <div class="form-error" id="form-error" role="alert"></div>
+      <button class="primary" type="submit" id="buscar"><svg class="small-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><span id="buscar-text">Buscar mis oportunidades</span><span aria-hidden="true">→</span></button>
+      <p class="privacy"><svg class="small-icon" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>No solicitamos DNI ni información financiera.</p>
+    </form>
+  </section>
+  <section class="panel results-panel" aria-labelledby="result-title">
+    <div class="results-head"><div class="results-title"><span class="results-icon"><svg viewBox="0 0 24 24" width="23" height="23" stroke="currentColor" stroke-width="1.8" fill="none"><path d="M5 4h14v16l-7-4-7 4V4Z"/><path d="M9 9h6M9 12h5"/></svg></span><div><h2 id="result-title">Tus recomendaciones</h2><p>Oportunidades seleccionadas según tus intereses</p></div></div><span class="state-pill" id="state-pill">Listo para explorar</span></div>
+    <div class="summary" id="summary"><div class="summary-title">Tu perfil de búsqueda</div><div class="summary-tags" id="summary-tags"></div></div>
+    <div class="stats-grid" id="stats-grid" aria-label="Estadísticas de resultados cargados">
+      <div class="stat-card"><span class="stat-number" id="stat-total">0</span><span class="stat-label">Oportunidades</span></div>
+      <div class="stat-card"><span class="stat-number" id="stat-becas">0</span><span class="stat-label">🎓 Becas</span></div>
+      <div class="stat-card"><span class="stat-number" id="stat-cursos">0</span><span class="stat-label">📘 Cursos</span></div>
+      <div class="stat-card"><span class="stat-number" id="stat-voluntariados">0</span><span class="stat-label">🤝 Voluntariados</span></div>
+    </div>
+    <p class="stats-caption" id="stats-caption">Conteo de los resultados recibidos, no del total de oportunidades disponibles en internet.</p>
+    <div class="filters" id="filters"><div class="filter-pills" id="filter-pills"><button type="button" class="filter-pill active" data-filter="Todas">Todas</button><button type="button" class="filter-pill" data-filter="Beca">Becas</button><button type="button" class="filter-pill" data-filter="Curso">Cursos</button><button type="button" class="filter-pill" data-filter="Voluntariado">Voluntariados</button></div><span class="result-count" id="result-count"></span></div>
+    <div class="toolbox" id="toolbox" aria-label="Herramientas para explorar resultados">
+      <div class="toolbox-top">
+        <div class="toolbox-field"><label for="result-search">Buscar en estos resultados</label><div class="input-with-icon"><svg class="small-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="result-search" type="search" autocomplete="off" placeholder="Ej. Python, universidad, ambiental…" /></div></div>
+        <button type="button" id="export-print" class="export-button" title="Usar Imprimir → Guardar como PDF">↓ Exportar a PDF</button>
+      </div>
+      <div class="toolbox-bottom">
+        <div class="toolbox-field"><label for="mode-filter">Modalidad</label><select id="mode-filter"><option value="Todas">Todas</option><option value="Virtual">Virtual</option><option value="Presencial">Presencial</option><option value="Mixta">Mixta / híbrida</option><option value="Sin dato">No especificada</option></select></div>
+        <div class="toolbox-field"><label for="status-filter">Verificación informada</label><select id="status-filter"><option value="Todas">Todas</option><option value="Pendiente">Por verificar</option><option value="Informada">Informada como verificada</option></select></div>
+        <div class="toolbox-field"><label for="sort-filter">Ordenar por</label><select id="sort-filter"><option value="original">Relevancia del agente</option><option value="compatibilidad">Compatibilidad informada</option><option value="fecha">Fecha límite (conocidas)</option><option value="nombre">Nombre (A–Z)</option><option value="categoria">Categoría</option></select></div>
+        <button type="button" class="clear-button" id="reset-filters">Restablecer</button>
+      </div>
+      <p class="filter-hint">La selección del formulario limita las categorías recibidas. Estos filtros y la paginación no consumen nuevas llamadas a Gemini ni Tavily.</p>
+    </div>
+    <div id="results" aria-live="polite"><div class="empty"><span class="empty-illustration"><svg width="62" height="62" viewBox="0 0 64 64" fill="none"><circle cx="28" cy="27" r="18" fill="#D8F4EB" stroke="#138879" stroke-width="3"/><path d="m41 41 13 13" stroke="#138879" stroke-width="6" stroke-linecap="round"/><path d="m28 18 2.5 6.8L37 27l-6.5 2.2L28 36l-2.2-6.8L19 27l6.8-2.2L28 18Z" fill="#148B7E"/></svg></span><h3>Tu próxima oportunidad te espera</h3><p>Completa tu perfil y descubre becas, cursos y voluntariados que podrían ser adecuados para ti.</p></div></div>
+    <nav id="pagination" class="pagination" aria-label="Páginas de resultados"></nav>
+    <div class="loading-view" id="loading-view" aria-live="polite"><div class="loading-label"><span class="loader"></span><span id="loading-message">Analizando tu perfil…</span><span id="loading-seconds">0 s</span></div><div class="skeleton"><div class="sk short"></div><div class="sk med"></div><div class="sk long"></div><div class="sk med"></div></div><div class="skeleton"><div class="sk short"></div><div class="sk long"></div><div class="sk med"></div></div></div>
+    <p class="disclaimer">Las oportunidades proceden de fuentes externas. Verifica directamente requisitos, fechas, costos y certificados antes de inscribirte.</p>
+  </section>
+</main>
+<div id="print-area" aria-hidden="true"></div>
+<footer class="site-foot container">© <span id="year"></span> OPORTUNIA IA · Tecnología para encontrar nuevas oportunidades</footer>
+<script>
+(() => {
+  'use strict';
+  // La URL privada de Chat Trigger está configurada internamente en server.js.
+  // La página solo se comunica con nuestro servidor local por /api/buscar.
+  const API = '/api/buscar';
+  const PROFILE_KEY='oportunia-profile-v2', FAV_KEY='oportunia-favorites-v2', SESSION_KEY='oportunia-session-v2';
+  const $=id=>document.getElementById(id);
+  const icon=(c='')=>{const s=document.createElement('span');s.className=c;return s;};
+  const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function safeURL(s){try{const u=new URL(String(s||'').trim());return ['http:','https:'].includes(u.protocol)?u.href:'';}catch{return '';}}
+  function clean(s){return String(s??'').replace(/\\n/g,'\n').replace(/\*\*/g,'').replace(/\*/g,'').replace(/`/g,'').replace(/__(.*?)__/g,'$1').replace(/\s+/g,' ').trim();}
+  const FIELD_MAP=[
+    [/^nombre(?: oficial)?$/i,'nombre'],
+    [/^instituci[oó]n(?: organizadora)?|^organiza(?:dor|ci[oó]n)/i,'institucion'],
+    [/^categor[ií]a|^tipo/i,'categoria'],
+    [/^modalidad(?: y pa[ií]s)?|^pa[ií]s(?: y modalidad)?/i,'modalidad'],
+    [/^requisitos(?: principales)?/i,'requisitos'],
+    [/^costo(?: y certificaci[oó]n)?|^certificaci[oó]n(?: y costo)?/i,'costo'],
+    [/^fecha l[ií]mite(?: de inscripci[oó]n)?|^vigencia|^plazo/i,'fecha'],
+    [/^compatibilidad(?: con el usuario)?/i,'compatibilidad'],
+    [/^motivo de (?:la )?recomendaci[oó]n|^por qu[eé] (?:se recomienda|encaja)/i,'motivo'],
+    [/^enlace oficial|^enlace(?: de inscripci[oó]n)?|^fuente oficial|^url/i,'enlace'],
+    [/^estado de verificaci[oó]n|^verificaci[oó]n|^estado/i,'estado']
+  ];
+  // Clasificación del tipo informado por el agente; el filtro final es estricto.
+  function classify(s){const t=String(s||'').toLowerCase();return /voluntari/.test(t)?'Voluntariado':/beca/.test(t)?'Beca':/curso|capacitaci[oó]n|certifica|formaci[oó]n/.test(t)?'Curso':'Otra';}
+  function extractURL(s){const t=String(s||'');const match=t.match(/\[[^\]]+\]\((https?:\/\/[^\s)]+)\)/i)||t.match(/(https?:\/\/[^\s<>]+)/i);return safeURL(match?.[1]||'');}
+  function parseMarkdownAnswer(s){
+    let source=String(s||'').replace(/\r\n?/g,'\n').replace(/\\n/g,'\n');
+    const rows=source.split('\n'); const cards=[]; let current=null;let lastField=null; let intro=[];
+    for(const raw of rows){
+      const row=raw.trim();if(!row)continue;
+      const head=row.match(/^#{1,4}\s*\*{0,2}\s*(?:oportunidad\s*#?\s*)?(\d+)\s*[.):-]?\s*(.*?)\*{0,2}\s*$/i)
+              ||row.match(/^\*{0,2}(?:oportunidad\s+)?(\d+)\s*[.):-]\s*(.{5,})$/i);
+      if(head){current={id:head[1],titulo:clean(head[2]),texto:[],fields:{}};cards.push(current);lastField=null;continue;}
+      if(/^[-_]{3,}$/.test(row)) {lastField=null;continue;}
+      if(!current){intro.push(row);continue;}
+      // Detecta "- **Campo:** valor", "**Campo:** valor" y variantes.
+      const fieldRow=row.replace(/^[-*+]\s+(?=\*\*|[\p{L}])/u,'');
+      const pair=fieldRow.replace(/\*\*/g,'').match(/^([^:\n]{2,55}):\s*(.*)$/u);
+      if(pair){
+        const key=clean(pair[1]); const matched=FIELD_MAP.find(([rx])=>rx.test(key));
+        if(matched){lastField=matched[1];current.fields[lastField]=(current.fields[lastField]||'')+(current.fields[lastField]?' ':'')+pair[2].trim();continue;}
+      }
+      if(lastField && (/^[-*+]\s+/.test(row)||/^\s{2,}/.test(raw))) current.fields[lastField]+=' · '+clean(row.replace(/^[-*+]\s+/,''));
+      else{current.texto.push(row);lastField=null;}
+    }
+    for(const card of cards){
+      const f=card.fields;
+      card.titulo=clean(f.nombre)||card.titulo||'Oportunidad '+card.id;
+      card.tipo=classify(f.categoria||card.titulo);
+      card.institucion=clean(f.institucion)||'Institución por verificar';
+      card.modalidad=clean(f.modalidad)||'Por verificar';
+      card.requisitos=clean(f.requisitos)||'Pendiente de verificar';
+      card.costo=clean(f.costo)||'Pendiente de verificar';
+      card.fecha=clean(f.fecha)||'Pendiente de verificar';
+      card.estado=clean(f.estado)||'POR_VERIFICAR';
+      card.compatibilidad=clean(f.compatibilidad)||'Pendiente de evaluar';
+      card.motivo=clean(f.motivo)||'Revisa los requisitos de esta oportunidad.';
+      card.url=extractURL(f.enlace)||(card.texto.map(extractURL).find(Boolean))||'';
+    }
+    return {intro:intro.join(' ').slice(0,1200),cards};
+  }
+  function parseResponse(data){
+    let value=data;
+    if(value && typeof value==='object' && 'data' in value)value=value.data;
+    if(Array.isArray(value) && value.length===1)value=value[0];
+    if(value && typeof value==='object' && Array.isArray(value.recomendaciones)){
+      return {intro:'Recomendaciones personalizadas',cards:value.recomendaciones.map((op,i)=>({
+        id:i+1,titulo:op.nombre||op.titulo||'Oportunidad',tipo:classify(op.tipo||op.categoria||op.nombre),
+        institucion:op.institucion||op.organizador||'Por verificar',modalidad:op.modalidad||'Por verificar',
+        requisitos:op.requisitos||'Por verificar',costo:op.costo_certificacion||op.certificacion||op.costo||'Por verificar',
+        fecha:op.fecha_cierre||op.fecha_limite||'Por verificar',estado:op.estado||'POR_VERIFICAR',
+        compatibilidad:op.compatibilidad||'Por verificar',motivo:op.motivo||op.justificacion||'Por verificar',
+        url:safeURL(op.enlace_oficial||op.url||op.enlace||'')
+      }))};
+    }
+    const t=typeof value==='string'?value:(value?.output||value?.text||value?.response||value?.message||'');
+    if(typeof t==='string' && t.trim()){
+      try{const j=JSON.parse(t);if(j.recomendaciones)return parseResponse(j);}catch{}
+      return parseMarkdownAnswer(t);
+    }
+    return {intro:'',cards:[],raw:typeof value==='string'?value:JSON.stringify(value||{})};
+  }
+  function loadJSON(key,fallback){try{return JSON.parse(localStorage.getItem(key))??fallback;}catch{return fallback;}}
+  let favorites=loadJSON(FAV_KEY,{}),lastCards=[],currentFilter='Todas',favView=false,lastIntro='',currentPage=1;
+  let selectedCategories=['Beca','Curso','Voluntariado'], rejectedByCategory=0;
+  const PAGE_SIZE=6;
+  let sessionId=localStorage.getItem(SESSION_KEY);
+  if(!sessionId || !/^[\w-]{10,100}$/.test(sessionId)){
+    sessionId=(globalThis.crypto?.randomUUID?.()||'session-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2));
+    localStorage.setItem(SESSION_KEY,sessionId);
+  }
+  function profile(){return {edad:Number($('edad').value),nivel:$('nivel').value,ubicacion:$('ubicacion').value.trim(),intereses:$('intereses').value.trim(),modalidad:$('modalidad').value,categorias:[...document.querySelectorAll('input[name="categorias"]:checked')].map(el=>el.value)};}
+  function restore(){const p=loadJSON(PROFILE_KEY,null);if(!p)return;['edad','nivel','ubicacion','intereses','modalidad'].forEach(k=>{if(p[k]!=null && $(k))$(k).value=p[k];});if(Array.isArray(p.categorias))document.querySelectorAll('input[name="categorias"]').forEach(el=>el.checked=p.categorias.includes(el.value));}
+  function el(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=String(text);return n;}
+  function state(text,tone=''){const n=$('state-pill');n.textContent=text;n.className='state-pill'+(tone?' '+tone:'');}
+  function updateFavCount(){const count=Object.keys(favorites).length;$('fav-count').textContent=String(count);}
+  function keyOf(o){return (o.url||o.institucion+'|'+o.titulo).toLowerCase().trim();}
+  function updateSummary(p){const root=$('summary-tags');root.replaceChildren();
+    [`${p.edad} años`,p.nivel,p.ubicacion,p.modalidad==='Cualquiera'?'Cualquier modalidad':p.modalidad,...p.categorias.map(x=>x==='Beca'?'Becas':x==='Curso'?'Cursos':'Voluntariados')].forEach(s=>root.append(el('span','summary-tag',s)));
+    $('summary').classList.add('visible');}
+  function makeFact(key,val){const f=el('div','fact');f.append(el('span','fact-key',key),el('div','fact-value',val));return f;}
+  function cardDOM(o,i){
+    const article=el('article','opportunity');const inner=el('div','op-inner');const top=el('div','card-top');const badges=el('div','badges');
+    badges.append(el('span','badge '+o.tipo.toLowerCase(),o.tipo==='Beca'?'🎓 Beca':o.tipo==='Curso'?'📘 Curso':o.tipo==='Voluntariado'?'🤝 Voluntariado':'Oportunidad'));
+    const pending=statusKind(o)!=='Informada';
+    badges.append(el('span','badge'+(pending?' warn':''),pending?'⏳ Por verificar':'Estado informado: '+String(o.estado).slice(0,25)));
+    const heart=el('button','heart'+(favorites[keyOf(o)]?' on':''),favorites[keyOf(o)]?'♥':'♡');heart.type='button';heart.setAttribute('aria-label',favorites[keyOf(o)]?'Quitar de favoritos':'Guardar en favoritos');
+    heart.addEventListener('click',()=>{const k=keyOf(o);if(favorites[k])delete favorites[k];else favorites[k]=o;localStorage.setItem(FAV_KEY,JSON.stringify(favorites));updateFavCount();renderCards();});
+    top.append(badges,heart);inner.append(top,el('h3','',o.titulo),el('p','organization','◈ '+o.institucion));
+    const quick=el('div','quick-facts');quick.append(el('span','','◉ '+o.modalidad),el('span','','◷ '+o.fecha));inner.append(quick);
+    const details=el('details','card-details');const summary=el('summary','','Ver detalles y compatibilidad');details.append(summary);
+    const facts=el('div','facts');
+    facts.append(makeFact('Modalidad y ubicación',o.modalidad),makeFact('Costo y certificación',o.costo),makeFact('Requisitos principales',o.requisitos),makeFact('Fecha límite o vigencia',o.fecha));
+    details.append(facts);
+    const fit=el('div','fit-note');fit.append(el('strong','',o.compatibilidad||'Compatibilidad por revisar'),el('p','',o.motivo||'Consulta los requisitos oficiales.'));details.append(fit);
+    inner.append(details);
+    const foot=el('div','card-footer');foot.append(el('span','source-info','Resultado '+(i+1)+' · Verifica los datos antes de postular'));
+    const u=safeURL(o.url);
+    if(u){const a=el('a','source-link','Ver fuente original ↗');a.href=u;a.target='_blank';a.rel='noopener noreferrer';foot.append(a);}
+    else foot.append(el('span','source-info','Enlace oficial no disponible'));
+    article.append(inner,foot);return article;
+  }
+  function normalizeText(s){return String(s??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+  function statusKind(o){const s=normalizeText(o.estado);return /\b(verificado|confirmado)\b/.test(s)&&!/por.verificar|pendiente|sin.confirmar|no.verificado/.test(s)?'Informada':'Pendiente';}
+  function modeKind(o){const s=normalizeText(o.modalidad);
+    if(/virtual|en.linea|online|remoto|distancia/.test(s))return 'Virtual';
+    if(/mixta|hibrida/.test(s))return 'Mixta';
+    if(/presencial/.test(s))return 'Presencial';
+    return 'Sin dato';
+  }
+  function fitRank(o){const s=normalizeText(o.compatibilidad);
+    if(/no.compatible|incompatible|no.cumple/.test(s))return 2;
+    if(/por.verificar|pendiente|falta|sin.confirmar/.test(s))return 1;
+    if(/compatible|cumple/.test(s))return 0;
+    return 1;
+  }
+  function dateKey(o){const t=normalizeText(o.fecha||'');let a=t.match(/\b(20\d{2})-(\d{1,2})-(\d{1,2})\b/);
+    if(a)return validDate(+a[1],+a[2],+a[3]);
+    a=t.match(/\b(\d{1,2})[\/.-](\d{1,2})[\/.-](20\d{2})\b/);
+    if(a)return validDate(+a[3],+a[2],+a[1]);
+    a=t.match(/\b(\d{1,2})\s+de\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|setiembre|octubre|noviembre|diciembre)\s+(?:de\s+)?(20\d{2})\b/);
+    if(a){const months={enero:1,febrero:2,marzo:3,abril:4,mayo:5,junio:6,julio:7,agosto:8,septiembre:9,setiembre:9,octubre:10,noviembre:11,diciembre:12};return validDate(+a[3],months[a[2]],+a[1]);}
+    return Infinity;
+  }
+  function validDate(y,m,d){const dt=new Date(Date.UTC(y,m-1,d));return dt.getUTCFullYear()===y&&dt.getUTCMonth()===m-1&&dt.getUTCDate()===d?dt.valueOf():Infinity;}
+  function getBaseCards(){return favView?Object.values(favorites):lastCards.filter(c=>selectedCategories.includes(c.tipo));}
+  function getFilteredCards(){const keyword=normalizeText($('result-search').value).trim(),mode=$('mode-filter').value,status=$('status-filter').value;
+    const cards=getBaseCards().filter(c=>{
+      if(currentFilter!=='Todas'&&c.tipo!==currentFilter)return false;
+      if(mode!=='Todas'&&modeKind(c)!==mode)return false;
+      if(status!=='Todas'&&statusKind(c)!==status)return false;
+      if(keyword&&!normalizeText([c.titulo,c.institucion,c.tipo,c.modalidad,c.requisitos,c.costo,c.fecha,c.estado,c.motivo].join(' ')).includes(keyword))return false;
+      return true;
+    });
+    const sort=$('sort-filter').value;
+    if(sort==='compatibilidad')cards.sort((a,b)=>fitRank(a)-fitRank(b));
+    else if(sort==='fecha')cards.sort((a,b)=>dateKey(a)-dateKey(b));
+    else if(sort==='nombre')cards.sort((a,b)=>a.titulo.localeCompare(b.titulo,'es'));
+    else if(sort==='categoria')cards.sort((a,b)=>a.tipo.localeCompare(b.tipo,'es'));
+    return cards;
+  }
+  function updateStatistics(){const cards=getBaseCards();const stats=[['stat-total',cards.length],['stat-becas',cards.filter(c=>c.tipo==='Beca').length],['stat-cursos',cards.filter(c=>c.tipo==='Curso').length],['stat-voluntariados',cards.filter(c=>c.tipo==='Voluntariado').length]];
+    stats.forEach(([id,n])=>$(id).textContent=n);
+    const visible=cards.length>0;
+    $('stats-grid').classList.toggle('visible',visible);
+    $('stats-caption').classList.toggle('visible',visible);
+    $('toolbox').classList.toggle('visible',visible);
+  }
+  function renderCards(){const root=$('results'),pagination=$('pagination');root.replaceChildren();pagination.replaceChildren();
+    const base=getBaseCards(),cards=getFilteredCards();
+    updateStatistics();
+    $('filters').classList.toggle('visible',base.length>0||favView);
+    $('result-count').textContent=cards.length+' de '+base.length+' '+(base.length===1?'oportunidad':'oportunidades');
+    const pages=Math.ceil(cards.length/PAGE_SIZE);
+    currentPage=Math.max(1,Math.min(currentPage,Math.max(pages,1)));
+    pagination.classList.toggle('visible',pages>1);
+    if(!cards.length){const wrap=el('div','empty');wrap.append(el('div','empty-illustration','✧'),el('h3','',base.length?'Sin resultados con estos filtros':favView?'Todavía no tienes favoritos':'No encontramos oportunidades'),el('p','',base.length?'Prueba otras palabras, otra modalidad o restablece los filtros.':favView?'Guarda oportunidades con el corazón ♡ para consultarlas después.':rejectedByCategory?'El agente respondió con oportunidades de categorías que no seleccionaste; se ocultaron para respetar tu búsqueda. Vuelve a buscar para obtener más opciones.':'Realiza una búsqueda desde el formulario.'));root.append(wrap);return;}
+    if(lastIntro&&!favView)root.append(el('div','result-note',rejectedByCategory?`Se ocultaron ${rejectedByCategory} resultado(s) de categorías no seleccionadas. Los estados son informativos; verifica la vigencia en su fuente original.`:'Resultados recibidos del agente. Los estados son informativos; verifica su vigencia y condiciones en la fuente original.'));
+    const start=(currentPage-1)*PAGE_SIZE;
+    cards.slice(start,start+PAGE_SIZE).forEach((card,i)=>root.append(cardDOM(card,start+i)));
+    if(pages>1){
+      const summary=el('span','pagination-summary',`Mostrando ${start+1}–${Math.min(start+PAGE_SIZE,cards.length)} de ${cards.length}`);
+      const buttons=el('div','page-buttons');
+      function makeButton(label,target,disabled=false,active=false){
+        const b=el('button','page-button'+(active?' current':''),label);b.type='button';b.disabled=disabled;
+        if(active)b.setAttribute('aria-current','page');
+        b.addEventListener('click',()=>{currentPage=target;renderCards();document.querySelector('.results-panel').scrollIntoView({behavior:'smooth',block:'start'});});
+        buttons.append(b);
+      }
+      makeButton('‹',currentPage-1,currentPage===1);
+      const windowStart=Math.max(1,Math.min(currentPage-2,pages-4));
+      const windowEnd=Math.min(pages,windowStart+4);
+      for(let n=windowStart;n<=windowEnd;n++)makeButton(String(n),n,false,n===currentPage);
+      makeButton('›',currentPage+1,currentPage===pages);
+      pagination.append(summary,buttons);
+    }
+  }
+  function resetExtraFilters(){['result-search','mode-filter','status-filter','sort-filter'].forEach(id=>{$(id).value=id==='sort-filter'?'original':id==='result-search'?'':'Todas';});}
+  function printableResults(){const cards=getFilteredCards();if(!cards.length)return;
+    const area=$('print-area');area.replaceChildren();area.append(el('h1','','OPORTUNIA IA — Resultados de oportunidades'));
+    area.append(el('p','print-note',`Resultados filtrados: ${cards.length}. Generado: ${new Date().toLocaleString('es-PE')}. Revisa siempre los datos en las fuentes originales.`));
+    cards.forEach((c,i)=>{const item=el('section','print-item');item.append(el('h2','',`${i+1}. ${c.titulo}`));
+      [['Institución',c.institucion],['Categoría',c.tipo],['Modalidad',c.modalidad],['Fecha o vigencia',c.fecha],['Requisitos',c.requisitos],['Costo y certificado',c.costo],['Compatibilidad informada',c.compatibilidad],['Verificación informada',c.estado],['Motivo',c.motivo]].forEach(([k,v])=>{const row=el('p');row.append(el('strong','',k+': '),document.createTextNode(v));item.append(row);});
+      const url=safeURL(c.url);if(url){const p=el('p'),a=el('a','',url);a.href=url;p.append(el('strong','','Fuente: '),a);item.append(p);}area.append(item);
+    });
+    window.print();
+  }
+  function showError(message){$('pagination').classList.remove('visible');$('filters').classList.remove('visible');$('stats-grid').classList.remove('visible');$('stats-caption').classList.remove('visible');$('toolbox').classList.remove('visible');const root=$('results');root.replaceChildren();const box=el('div','errorbox');box.append(el('h3','','No se pudo completar la búsqueda'),el('p','',message));
+    const retry=el('button','retry','Volver a intentar');retry.type='button';retry.addEventListener('click',()=>$('perfil-form').requestSubmit());box.append(retry);root.append(box);}
+  function loading(on){$('loading-view').classList.toggle('visible',on);$('results').style.display=on?'none':'';$('buscar').disabled=on;
+    $('buscar-text').textContent=on?'Buscando oportunidades…':'Buscar mis oportunidades';if(on)state('Buscando…','loading');}
+  $('result-search').addEventListener('input',()=>{currentPage=1;renderCards();});
+  for(const id of ['mode-filter','status-filter','sort-filter'])$(id).addEventListener('change',()=>{currentPage=1;renderCards();});
+  $('reset-filters').addEventListener('click',()=>{resetExtraFilters();currentPage=1;currentFilter='Todas';document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x.dataset.filter==='Todas'));renderCards();});
+  $('export-print').addEventListener('click',printableResults);
+  document.querySelectorAll('[data-topic]').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.topic,a=$('intereses'),parts=a.value.split(',').map(v=>v.trim()).filter(Boolean);if(!parts.some(v=>v.toLocaleLowerCase('es')===t.toLocaleLowerCase('es')))parts.push(t);a.value=parts.join(', ');a.focus();}));
+  document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{currentFilter=b.dataset.filter;currentPage=1;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x===b));renderCards();}));
+  $('fav-toggle').addEventListener('click',()=>{favView=!favView;currentFilter='Todas';currentPage=1;document.querySelectorAll('[data-filter]').forEach(x=>x.classList.toggle('active',x.dataset.filter==='Todas'));$('fav-toggle').setAttribute('aria-pressed',String(favView));$('fav-toggle').style.background=favView?'#e8f7f1':'';state(favView?'Viendo favoritos':'Listo para explorar');renderCards();$('result-title').textContent=favView?'Mis favoritos':'Tus recomendaciones';document.querySelector('.results-panel').scrollIntoView({behavior:'smooth',block:'start'});});
+  $('perfil-form').addEventListener('submit',async evt=>{
+    evt.preventDefault();const p=profile(),error=$('form-error');error.classList.remove('show');
+    if(!Number.isInteger(p.edad)||p.edad<12||p.edad>100){error.textContent='Indica una edad válida entre 12 y 100 años.';error.classList.add('show');return;}
+    if(!p.ubicacion||p.ubicacion.length<2){error.textContent='Indica tu país o región.';error.classList.add('show');return;}
+    if(p.intereses.length<4){error.textContent='Describe al menos un área que te interese.';error.classList.add('show');return;}
+    if(!p.categorias.length){error.textContent='Selecciona al menos una categoría: becas, cursos o voluntariados.';error.classList.add('show');return;}
+    localStorage.setItem(PROFILE_KEY,JSON.stringify(p));favView=false;$('result-title').textContent='Tus recomendaciones';$('fav-toggle').setAttribute('aria-pressed','false');$('fav-toggle').style.background='';
+    updateSummary(p);loading(true);$('filters').classList.remove('visible');$('pagination').classList.remove('visible');$('stats-grid').classList.remove('visible');$('stats-caption').classList.remove('visible');$('toolbox').classList.remove('visible');
+    const begin=Date.now();let tick=setInterval(()=>{const sec=Math.floor((Date.now()-begin)/1000);$('loading-seconds').textContent=sec+' s';$('loading-message').textContent=sec<12?'Analizando tu perfil…':sec<32?'Buscando oportunidades en fuentes disponibles…':'Preparando las recomendaciones…';},1000);
+    const controller=new AbortController(),limit=setTimeout(()=>controller.abort(),116000);
+    const message=`Soy una persona de ${p.edad} años. Nivel de estudios: ${p.nivel}. País o región: ${p.ubicacion}. Áreas de interés: ${p.intereses}. Modalidad preferida: ${p.modalidad}. TIPOS ADMITIDOS EN ESTA BÚSQUEDA (RESTRICCIÓN OBLIGATORIA): ${p.categorias.join(', ')}. Busca oportunidades relevantes y actuales usando Tavily y consulta el catálogo de MySQL. Encuentra y recomienda hasta 12 oportunidades distintas y RECOMIENDA ÚNICAMENTE oportunidades cuyos tipos pertenezcan a esta lista: ${p.categorias.join(', ')}. Si se ha seleccionado solo Beca, NO recomiendes cursos ni voluntariados; si se ha seleccionado solo Curso, NO recomiendes becas ni voluntariados; si se ha seleccionado solo Voluntariado, NO recomiendes becas ni cursos. Al consultar MySQL, ignora cualquier registro cuyo campo tipo esté fuera de los tipos solicitados. No inventes oportunidades ni repitas enlaces y no completes artificialmente 12 si hay menos válidas. Identifica correctamente la categoría real de cada oportunidad; no etiquetes un curso como beca para incluirlo en los resultados. Responde en una lista numerada, una oportunidad por bloque, con el encabezado "### 1. Nombre de la oportunidad", "### 2. ...", etc. Debajo de cada encabezado incluye en líneas separadas estos campos: "Institución:", "Categoría:", "Modalidad:", "Requisitos:", "Costo y certificación:", "Fecha límite:", "Compatibilidad:", "Motivo de recomendación:", "Estado de verificación:" y "Enlace oficial:". Utiliza únicamente información sustentada en fuentes y URLs reales y, cuando falte un dato, indica POR_VERIFICAR. Si no se puede confirmar vigencia, certificado o elegibilidad, especifica POR_VERIFICAR; nunca presentes datos de prueba DEMO como reales. Esta consulta web es de solo lectura: no insertes ni actualices MySQL.`;
+    try{
+      const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chatInput:message,sessionId}),signal:controller.signal});
+      let payload={};try{payload=await r.json();}catch{}
+      if(!r.ok)throw new Error(payload.error||'No se pudo conectar con el agente (HTTP '+r.status+').');
+      const parsed=parseResponse(payload);selectedCategories=[...p.categorias];
+      lastCards=parsed.cards.filter(c=>selectedCategories.includes(c.tipo));
+      rejectedByCategory=parsed.cards.length-lastCards.length;lastIntro=parsed.intro;resetExtraFilters();
+      currentFilter=p.categorias.length===1?p.categorias[0]:'Todas';currentPage=1;
+      document.querySelectorAll('[data-filter]').forEach(b=>b.classList.toggle('active',b.dataset.filter===currentFilter));
+      if(lastCards.length){renderCards();state(lastCards.length+' encontradas');}
+      else if(parsed.cards.length){renderCards();state('Sin coincidencias de la categoría solicitada');}
+      else if(parsed.intro){$('results').replaceChildren(el('div','raw-fallback',parsed.intro));state('Respuesta recibida');}
+      else {showError('n8n respondió, pero no envió oportunidades en el formato esperado. Revisa la salida del AI Agent.');state('Respuesta incompleta','error');}
+    } catch(err){const abort=err?.name==='AbortError';showError(abort?'El agente tardó demasiado. Revisa en n8n → Executions si Gemini alcanzó un límite de cuota o si el workflow sigue ejecutándose.':err.message||'Revisa que n8n siga iniciado.');state('Error de conexión','error');}
+    finally{clearTimeout(limit);clearInterval(tick);loading(false);}
+  });
+  restore();updateFavCount();$('year').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
